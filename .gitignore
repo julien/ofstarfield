@@ -1,0 +1,15 @@
+
+.DS_Store
+
+
+**_debug**
+**bin**
+**lib**
+**obj**
+
+*.app
+*.log
+
+*.exe
+*.qbs
+
