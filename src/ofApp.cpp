@@ -9,11 +9,10 @@ void ofApp::setup() {
 
 void ofApp::update() {
 
-    speed = ofMap(mouseX, 0, ofGetWidth() / 2, 0, 20);
+    speed = ofMap(mouseX, 0, ofGetWidth(), -1, 1);
 
     for (unsigned int i = 0; i < NUM_STARS; i++) {
         Star *s = stars.at(i);
-        // s->speed = speed;
         s->update();
     }
 
@@ -26,17 +25,13 @@ void ofApp::draw() {
 
 
     ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
-    ofRotateZ(rotation.z);
+    ofRotateZ(rotation.z * speed);
 
     for (unsigned int i = 0; i < NUM_STARS; i++) {
         Star *s = stars.at(i);
         s->draw();
     }
-
-
-
     ofPopMatrix();
-
     rotation.z += 0.98;
 
 }
