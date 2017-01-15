@@ -23,12 +23,12 @@ void ofApp::draw() {
 
     ofPushMatrix();
 
-
     ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
     ofRotateZ(rotation.z * speed);
 
     for (unsigned int i = 0; i < NUM_STARS; i++) {
         Star *s = stars.at(i);
+        s->drawLines = drawLines;
         s->draw();
     }
     ofPopMatrix();
@@ -38,6 +38,10 @@ void ofApp::draw() {
 
 void ofApp::mouseMoved(int x, int y) {
 
+}
+
+void ofApp::mousePressed(int x, int y, int button) {
+   drawLines = !drawLines;
 }
 
 

@@ -7,6 +7,7 @@ public:
     float z;
     int speed;
     float pz;
+    bool drawLines;
 
     Star() {
         int w = ofGetWidth();
@@ -19,6 +20,7 @@ public:
         pz = z;
 
         speed = (int) ofRandom(10, 60);
+        drawLines = false;
     }
 
     void update() {
@@ -48,8 +50,10 @@ public:
         ofFill();
         ofDrawEllipse(sx, sy, r, r);
 
-        ofSetColor(ofColor(255, 255, 255, 50));
-        ofNoFill();
-        ofDrawLine(px, py, sx, sy);
+        if (drawLines) {
+            ofSetColor(ofColor(255, 255, 255, 50));
+            ofNoFill();
+            ofDrawLine(px, py, sx, sy);
+        }
     }
 };
